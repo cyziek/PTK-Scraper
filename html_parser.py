@@ -1,6 +1,8 @@
+import math
+
 from bs4 import BeautifulSoup
 
-def parse_html(response):
+def extract_companies_from_html(response):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     companies = soup.find_all('div', class_='company-row')
@@ -30,3 +32,11 @@ def parse_html(response):
 
     for data in company_data:
         print(data)
+
+def extract_pages_count(response):
+    soup = BeautifulSoup(response.text, 'html.parser')
+    total_companies_count = soup.find('h1').find('b').text
+    total_companies_count = total_companies_count.replace(',', '')
+    pages = float(total_companies_count)
+    pages = pages/25
+    return (math.ceil(pages))
