@@ -33,8 +33,8 @@ def extract_companies_from_html(response):
             'email': email
         })
         write_csv(str(name)+";"+str(category)+";"+str(address)+";"+str(phone)+";"+str(email)+";"+"\n")
-    for data in company_data:
-        print(data)
+    # for data in company_data:
+        # print(data)
 
 
 def extract_pages_count(response):
