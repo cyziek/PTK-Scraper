@@ -2,6 +2,9 @@ import math
 
 from bs4 import BeautifulSoup
 
+from csv_writer import *
+
+
 def extract_companies_from_html(response):
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -29,9 +32,10 @@ def extract_companies_from_html(response):
             'phone': phone,
             'email': email
         })
-
+        write_csv(str(name)+";"+str(category)+";"+str(address)+";"+str(phone)+";"+str(email)+";"+"\n")
     for data in company_data:
         print(data)
+
 
 def extract_pages_count(response):
     soup = BeautifulSoup(response.text, 'html.parser')
