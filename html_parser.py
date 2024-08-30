@@ -43,4 +43,7 @@ def extract_pages_count(response):
     total_companies_count = total_companies_count.replace(',', '')
     pages = float(total_companies_count)
     pages = pages/25
-    return (math.ceil(pages))
+    pages = math.ceil(pages)
+    if pages > 1000:
+        pages = 1000
+    return pages

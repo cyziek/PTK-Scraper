@@ -11,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 def selenim_auth(url):
     chrome_options = Options()
     chrome_options.add_argument("--disable-search-engine-choice-screen")
+    chrome_options.add_argument("headless")
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
     cookies_button = driver.find_element(By.ID, 'hs-eu-confirmation-button')
